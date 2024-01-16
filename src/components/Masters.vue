@@ -1,13 +1,12 @@
 
 
 <template>
-<body>
 <div class="container">
    
 <h3>รายการทรัพย์สิน</h3>
  
   <form v-on:submit.prevent="addItem">
-   <div class="row powder-blue">
+   <div class="row">
     <div class="form-group col-md-5">
        <label>รหัส</label> <input type="text"  id="input">
     </div>
@@ -71,36 +70,36 @@
   </div>
 
    <div class="row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-5">
        <label>คิดค่าเสื่อม</label> <input type="text"  id="input">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-7">
       
     </div>
  
-    <div class="form-group col-md-6">
-       <label>ค่าเสื่อมยกมา</label> <input type="text"  id="input">
+    <div class="form-group col-md-5">
+       <label>ค่าเสื่อมยกมา</label> <input type="date"  id="input">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-7">
       <label class="w-90">วันที่ขาย</label> <input type="date"  id="input">
     </div>
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-5">
        <label>ค่าเสื่อมคำนวณเอง</label> <input type="text"  id="input">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-7">
       <label class="w-90">ราคาขาย</label> <input type="text"  id="input">
     </div>
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-5">
        <label>คำนวณเองถึงวันที่</label> <input type="text"  id="input">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-7">
       <label class="w-90">กำไร/ขาดทุน</label> <input type="text"  id="input">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-5">
        <label>ค่าเสื่อมเบื้องต้น</label> <input type="text"  id="input">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-7">
      
     </div>
   </div>
@@ -110,7 +109,7 @@
 
  
 </div>
-</body>
+
 </template>
 
 <script>
@@ -146,16 +145,17 @@ export default {
       width:100%;
       padding: 10px;
       text-align:left;
-      margin:10px;
+      margin-top:10px;
+      margin-right:10px;
   }
   
   input{
-    width:75%;
+    width:80%;
     margin-top:5px;
   }
 
   label{
-    width:90px;
+    width:80px;
     font-size:16px;
   }
   .w-90{
@@ -168,15 +168,7 @@ export default {
 
   .container{
     border:1px solid gray;
-    padding-right:30px;
-    background-color:#F8F8FF;
+    padding-right:10px;
   }
-
-.powder-blue{
-  background-color:#ADD8E6;
-}
-body{
-  background-color:#FFEBCD;
-}
 
 </style>

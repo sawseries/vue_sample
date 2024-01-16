@@ -1,17 +1,17 @@
 <script>
-import Master from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 
 export default {
   name: 'App',
   components: {
-    Master,
+    HelloWorld,
   }
 }
 </script>
 
 <template>
-  <Master msg="Welcome to Your Vue.js App"/>
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <style>
@@ -21,6 +21,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  
+  margin-top: 60px;
 }
 </style>
