@@ -1,161 +1,138 @@
-
-
 <template>
-<div class="container">
-   
-<h3>รายการทรัพย์สิน</h3>
- 
-  <form v-on:submit.prevent="addItem">
-   <div class="row">
-    <div class="form-group col-md-5">
-       <label>รหัส</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      <label>ชื่อไทย</label> <input type="text"  id="input">
-    </div>
- 
-    <div class="form-group col-md-5">
-      
-    </div>
-    <div class="form-group col-md-7">
-      <label>อังกฤษ</label> <input type="text"  id="input">
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="form-group col-md-6">
-       <label>หมวด</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-6">
-      <label>กลุ่มบัญชี</label> <input type="text"  id="input">
-    </div>
- 
-    <div class="form-group col-md-6">
-       <label>เลขทะเบียน</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-6">
-      <label>แผนก</label> <input type="text"  id="input">
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="form-group col-md-5">
-       <label>คิดค่าเสื่อม</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      <label class="w-90">วิธีคิดค่าเสื่อม</label> <input type="text"  id="input">
-    </div>
- 
-    <div class="form-group col-md-5">
-       <label>วันที่ซื้อ</label> <input type="date"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      <label class="w-90">วันที่เริ่มใช้</label> <input type="date"  id="input">
-    </div>
-
-      <div class="form-group col-md-5">
-       <label>ราคาทุน</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      <label class="w-90">อายุการใช้</label> <input type="text"  id="input">
-    </div>
-      <div class="form-group col-md-5">
-       <label>ราคาซาก</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      <label class="w-90">อัตรา</label> <input type="text"  id="input">
-    </div>
-  </div>
-
-   <div class="row">
-    <div class="form-group col-md-5">
-       <label>คิดค่าเสื่อม</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      
-    </div>
- 
-    <div class="form-group col-md-5">
-       <label>ค่าเสื่อมยกมา</label> <input type="date"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      <label class="w-90">วันที่ขาย</label> <input type="date"  id="input">
-    </div>
-
-      <div class="form-group col-md-5">
-       <label>ค่าเสื่อมคำนวณเอง</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      <label class="w-90">ราคาขาย</label> <input type="text"  id="input">
-    </div>
-      <div class="form-group col-md-5">
-       <label>คำนวณเองถึงวันที่</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-      <label class="w-90">กำไร/ขาดทุน</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-5">
-       <label>ค่าเสื่อมเบื้องต้น</label> <input type="text"  id="input">
-    </div>
-    <div class="form-group col-md-7">
-     
-    </div>
-  </div>
-
-
-  </form>
-
- 
+<div class="content">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="table_header">
+                    <th>No</th>
+                    <th>Code</th>
+                    <th>name</th>
+                    <th>status</th>
+                    <th>keeper</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="asset in assets" :key="asset.id">
+                     <td><input type="checkbox"></td>
+                    <td>{{asset.code}}</td>
+                    <td>{{asset.name}}</td>
+                    <td>{{asset.status}}</td>
+                    <td>{{asset.keeper}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 </div>
-
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-         itemName: null,
-        itemNumber: null,
-        shoppingList: [
-          { name: 'Tomatoes', number: 5 }
-        ]
-      }
-    },
-    methods: {
-      addItem(){
-        let item = {
-          name: this.itemName,
-          number: this.itemNumber
-        }
-        this.shoppingList.push(item)
-        this.itemName = null
-        this.itemNumber = null  
-      }
+    data() {
+        return {
+            assets:[
+              { id:'1',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' },
+              { id:'2',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' },
+              { id:'3',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' },
+              { id:'4',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' },
+              { id:'5',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' }
+            ],
+        };
     }
-}
+};
 </script>
 
-
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300&family=Noto+Serif+Thai:wght@600&family=Prompt&display=swap');
 
- .row{
+body {
+  margin: 0;
+ font-family: 'Mitr', sans-serif;
+font-family: 'Noto Serif Thai', serif;
+font-family: 'Prompt', sans-serif;
+}
+
+
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color:#FFF;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  border-right:1px solid #C0C0C0;
+}
+
+.sidebar a{
+  display: block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  text-align:left;
+  font-size:12pt;
+  font-family: 'Mitr', sans-serif;
+  font-family: 'Noto Serif Thai', serif;
+  font-family: 'Prompt', sans-serif;
+  margin:5px;
+}
+ 
+.sidebar a.active {
+  background-color:#4169E1;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #F5F5F5;
+  color:#1E90FF;
+  border-radius:10px;
+  margin:5px;
+}
+
+div.content {
+  margin-left:230px;
+  margin-right:40px;
+  margin-top:10px;
+  padding:0.5em;
+  padding-top:20px;
+  height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.row{
       border: dashed black 1px;
       width:100%;
       padding: 10px;
       text-align:left;
-      margin-top:10px;
-      margin-right:10px;
+      margin:10px;
+        font-family: 'Mitr', sans-serif;
+font-family: 'Noto Serif Thai', serif;
+font-family: 'Prompt', sans-serif;
   }
   
   input{
-    width:80%;
+    width:75%;
     margin-top:5px;
   }
 
   label{
-    width:80px;
+    width:90px;
     font-size:16px;
   }
   .w-90{
@@ -168,7 +145,24 @@ export default {
 
   .container{
     border:1px solid gray;
-    padding-right:10px;
+    padding-right:30px;
+    background-color:#F8F8FF;
   }
+
+.powder-blue{
+  background-color:#ADD8E6;
+}
+body{
+ 
+}
+.container-fluid{
+   background-color:#FFEBCD;
+}
+.table_header th{
+  background-color:#708090;
+  color:white;
+}
+
+
 
 </style>

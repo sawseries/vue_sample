@@ -1,16 +1,17 @@
 <script>
-import Master from './components/HelloWorld.vue'
-
+import Master from './components/Masters.vue'
+import Sidebar from './components/sidebar.vue'
 
 export default {
   name: 'App',
   components: {
-    Master,
+    Master,Sidebar
   }
 }
 </script>
 
 <template>
+  <Sidebar/> 
   <Master msg="Welcome to Your Vue.js App"/>
 </template>
 
