@@ -1,4 +1,4 @@
-<template>
+﻿<template>
 <div class="content">
         <table class="table">
             <thead>

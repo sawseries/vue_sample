@@ -1,12 +1,4 @@
-<template>
-<div class="sidebar">
-  <a class="active"><router-link to="/"> <font-awesome-icon icon="js" /> ทรัพย์สิน </router-link></a>
-  <a href="#news"><router-link to="/about"><font-awesome-icon icon="phone" /> แผนก</router-link></a>
-  <a href="#contact"><router-link to="/contact"><font-awesome-icon icon="fa-solid fa-user-secret" />พนักงาน</router-link></a>
-  <a href="#about"><router-link to="/contact"><font-awesome-icon icon="js" />กลุ่มบัญชี</router-link></a>
-  <a href="#about"><router-link to="/contact"><font-awesome-icon icon="js" />รายการทรัพย์สิน</router-link></a>
-</div>
-
+﻿<template>
 <div class="content">
  <h3>รายการทรัพย์สิน</h3>
   <form v-on:submit.prevent="addItem">
@@ -96,12 +88,9 @@
      
     </div>
   </div>
-
-
   </form>
 </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -110,19 +99,15 @@ export default {
     };
   },
   mounted() {
-    // Check the window width on component mount
     this.checkResponsive();
-    // Add event listener for window resize
     window.addEventListener('resize', this.checkResponsive);
   },
   methods: {
     checkResponsive() {
-      // Toggle the 'responsive' class based on window width
       this.isResponsive = window.innerWidth < 768;
     },
   },
   beforeUnmount() {
-    // Remove the event listener to avoid memory leaks
     window.removeEventListener('resize', this.checkResponsive);
   },
 };

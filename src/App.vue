@@ -1,20 +1,16 @@
 <script>
-import Master from './components/Masters.vue'
 import Sidebar from './components/sidebar.vue'
-
 export default {
   name: 'App',
   components: {
-    Master,Sidebar
+    Sidebar
   }
 }
 </script>
-
 <template>
   <Sidebar/> 
-  <Master msg="Welcome to Your Vue.js App"/>
+  <router-view/>
 </template>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -22,6 +18,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

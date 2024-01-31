@@ -1,15 +1,18 @@
-﻿<template>
+﻿<prismic-rich-text :field="description_text" />
+<template>
 
 <div class="topnav">
-  <a class="active" href="#home">K2M ASSET</a>
+  <a class="brand" href="#home"><b>K2M ASSET</b></a>
+  <a class="topnav_right" href="#"><b>logout</b></a>
 </div>
 
 <div class="sidebar">
-  <a class="active"><router-link to="/"> <font-awesome-icon icon="js" /> ทรัพย์สิน </router-link></a>
-  <a href="#news"><router-link to="/about"><font-awesome-icon icon="phone" /> แผนก</router-link></a>
-  <a href="#contact"><router-link to="/contact"><font-awesome-icon icon="fa-solid fa-user-secret" />พนักงาน</router-link></a>
-  <a href="#about"><router-link to="/contact"><font-awesome-icon icon="js" />กลุ่มบัญชี</router-link></a>
-  <a href="#about"><router-link to="/contact"><font-awesome-icon icon="js" />รายการทรัพย์สิน</router-link></a>
+  
+  <router-link class="active" to="/">ทรัพย์สิน </router-link>
+  <router-link to="/create/assets"><font-awesome-icon icon="phone" /> แผนก</router-link>
+  <router-link to="/Master"><font-awesome-icon icon="fa-solid fa-user-secret" />พนักงาน</router-link>
+  <router-link to="/login"><font-awesome-icon icon="js" />กลุ่มบัญชี</router-link>
+  <router-link to="/contact"><font-awesome-icon icon="js" />รายการทรัพย์สิน</router-link>
 </div>
 </template>
 
@@ -28,24 +31,36 @@ export default {
 body {
   margin: 0;
  font-family: 'Mitr', sans-serif;
-font-family: 'Noto Serif Thai', serif;
+font-family: 'Arial', sans-serif;
 font-family: 'Prompt', sans-serif;
+font-size:14px;
 }
+
+
 
 
 
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #425f9c;
+ 
 }
 
 .topnav a {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 10px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 12px;
+}
+
+.topnav .topnav_right{
+    float:right;
+    color:#fff;
+    background-color:#4169E1;
+    font-size:10pt;
+  
 }
 
 .topnav a:hover {
@@ -53,10 +68,14 @@ font-family: 'Prompt', sans-serif;
   color: black;
 }
 
-.topnav a.active {
-  background-color: #04AA6D;
+.topnav a.brand {
   color: white;
   width:200px;
+   font-size:10pt;
+}
+
+.table td,th{
+    font-size:12pt;
 }
 
 .sidebar {
@@ -64,10 +83,11 @@ font-family: 'Prompt', sans-serif;
   padding: 0;
   width: 200px;
   background-color:#FFF;
-  position: fixed;
-  height: 100%;
+  height:100vh;
   overflow: auto;
-  border-right:1px solid #C0C0C0;
+  float:left;
+  border-right:1px solid #778899;
+  position:relative;
 }
 
 .sidebar a{
@@ -83,7 +103,7 @@ font-family: 'Prompt', sans-serif;
   margin:5px;
 }
  
-.sidebar a.active {
+.sidebar .active {
   background-color:#4169E1;
   color: white;
 }
@@ -93,15 +113,6 @@ font-family: 'Prompt', sans-serif;
   color:#1E90FF;
   border-radius:10px;
   margin:5px;
-}
-
-div.content {
-  margin-left:230px;
-  margin-right:40px;
-  margin-top:10px;
-  padding:0.5em;
-  padding-top:20px;
-  height: 100%;
 }
 
 @media screen and (max-width: 700px) {
@@ -167,72 +178,7 @@ body{
   color:white;
 }
 
-$breakpoint: 480px;
-#table-demo {
-  margin: 20px 0;
-  table{
-    min-width: 300px;
-    width: 100%;
-    height: fit-content;
-    overflow-y: scroll;
-    border-collapse: collapse;
-    border: 1px solid #000;
-    tr {
-      td {
-        border: 1px solid #000;
-        padding: 10px;
-      }
-    }
-    .bold {
-      border-right: none;
-      border-left: none;
-      background: #ddd;
-      border-bottom: 1px solid #c2c2c2;
-      border: none;
-      td {
-        border: none;
-        background: #000;
-        color: #fff;
-        border: none;
-        font-size: 18px;
-        font-weight: bold;
-      }
-    }
-  }
-  .with-header {
-    tr:first-of-type {
-      td {
-        border: none;
-      }
-    }
-    @media (max-width: $breakpoint) {
-      tr:first-of-type {
-        display: none;
-      }
-      tr {
-        border: 1px solid #000;
-        td {
-          display: block;
-          border: none;
-          &:first-child {
-            padding-top: .5em;
-          }
-          &:last-child {
-            padding-bottom: .5em;
-          }
-          &:before {
-            content: attr(data-th)": ";
-            font-weight: bold;
-            display: inline-block;
-            @media (min-width: $breakpoint) {
-              display: none;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+
 
 
 </style>
