@@ -6,16 +6,18 @@
                     <th>No</th>
                     <th>Code</th>
                     <th>name</th>
+                    <th>serialnum</th>
                     <th>status</th>
                     <th>keeper</th>
                     <th>action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="asset in assets" :key="asset.id">
+                <tr v-for="asset in assets" :key="asset.asset_code">
                      <td><input type="checkbox"></td>
-                    <td>{{asset.code}}</td>
-                    <td>{{asset.name}}</td>
+                    <td>{{asset.asset_code}}</td>
+                    <td>{{asset.asset_name}}</td>
+                    <td>{{asset.serial_num}}</td>
                     <td>{{asset.status}}</td>
                     <td>{{asset.keeper}}</td>
                     <td></td>
@@ -26,23 +28,29 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
-            assets:[
-              { id:'1',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' },
-              { id:'2',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' },
-              { id:'3',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' },
-              { id:'4',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' },
-              { id:'5',code: 'B748596', name: 'Computer DELL', status: 'available', keeper: 'นางยุพิน ดอนวิชัย' }
-            ],
+            assets:[],
         };
-    }
+    },mounted() {
+       this.all();
+    },
+    methods:{
+        all(){
+            axios.get("http://localhost:3000/trd/all")
+            .then(response => {	
+              this.assets = response.data;              
+            })
+            .catch(error => {
+              alert(error);
+            });
+        },
+    },
 };
 </script>
-
 <style scoped>
-
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
@@ -86,30 +94,26 @@ div.content {
     margin-top:5px;
   }
 
-  label{
-    width:90px;
-    font-size:16px;
-  }
-  .w-90{
-    width:90px;
-  }
+label{
+  width:90px;
+  font-size:16px;
+}
+.w-90{
+  width:90px;
+}
 
-  .w-100{
-    width:100px;
-  }
-
-
+.w-100{
+  width:100px;
+}
 
 .powder-blue{
   background-color:#ADD8E6;
 }
 
-
 .table_header th{
   background-color:#708090;
   color:white;
 }
-
 
 
 </style>

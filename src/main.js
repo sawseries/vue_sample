@@ -10,9 +10,13 @@ import Vue3EasyDataTable from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
 import router from './router'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 library.add(faPhone);
 createApp(App).use(router)
-  .component("font-awesome-icon", FontAwesomeIcon)
-  .component('EasyDataTable', Vue3EasyDataTable)
-  .mount("#app");
+.component("font-awesome-icon", FontAwesomeIcon)
+.component('EasyDataTable', Vue3EasyDataTable)
+.mount("#app");
+
+createApp(App).use(VueAxios, axios)

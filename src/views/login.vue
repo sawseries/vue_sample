@@ -31,19 +31,15 @@ export default {
     };
   },
   mounted() {
-    // Check the window width on component mount
     this.checkResponsive();
-    // Add event listener for window resize
     window.addEventListener('resize', this.checkResponsive);
   },
   methods: {
     checkResponsive() {
-      // Toggle the 'responsive' class based on window width
       this.isResponsive = window.innerWidth < 768;
     },
   },
   beforeUnmount() {
-    // Remove the event listener to avoid memory leaks
     window.removeEventListener('resize', this.checkResponsive);
   },
 };
